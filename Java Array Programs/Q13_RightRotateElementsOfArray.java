@@ -1,18 +1,18 @@
 import java.util.Arrays;
 
-public class Q3_LeftRotateElementsOfArray {
+public class Q13_RightRotateElementsOfArray {
 
-    static void leftRotateArrayElements(int[] arr, int rotations) {
+    static void rightRotateArrayElements(int[] arr, int rotations) {
         int n = arr.length;
 
         for (int i = 1; i <= rotations; i++) {
-            int temp = arr[0];
-            int j = 1;
-            while (j < arr.length) {
-                arr[j - 1] = arr[j];
-                j++;
+            int temp = arr[n - 1];
+            int j = n - 1;
+            while (j > 0) {
+                arr[j] = arr[j - 1];
+                j--;
             }
-            arr[n - 1] = temp;
+            arr[0] = temp;
         }
     }
 
@@ -22,9 +22,8 @@ public class Q3_LeftRotateElementsOfArray {
 
         System.out.println("Before Left Rotating Array : " + Arrays.toString(arr));
 
-        leftRotateArrayElements(arr, rotations);
+        rightRotateArrayElements(arr, rotations);
 
         System.out.println("After Left Rotating Array : " + Arrays.toString(arr));
-
     }
 }
